@@ -1,0 +1,35 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines/images/image (1).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<table border="5" bordercolor="#ff0000">
+{% if details %}
+    {% for v in details %}
+        <tr>
+            <th>UNIT PRICE:</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v}}</font></td>
+        </tr>
+    {%  endfor %}
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+</table>
+</center>
+

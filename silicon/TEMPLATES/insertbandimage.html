@@ -1,0 +1,40 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (15).jpg');
+}
+
+    </style>
+</head>
+<body>
+<center> </center>
+<br>
+<form name="loginForm" method="post" action="{% url 'insertbandimage' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+<table width="40%" background=”C:\Users\jaysw\Downloads\tableback.jpg” align="center">
+
+
+<tr>
+<td colspan="2"><center><font size=20><b></b></font></center></td>
+</tr>
+
+<tr>
+<td>Enetr product image:</td>
+<td><input type="file" size=30 name="image" id="1234"></td>
+</tr>
+
+
+<tr>
+<td ><input type="Reset"></td>
+<td><input type="submit" value="insert">
+</td>
+</tr>
+
+
+</table>
+</form>
+
+
+</body>
+</html>

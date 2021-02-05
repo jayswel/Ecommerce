@@ -1,0 +1,32 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (15).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<table border="1" bordercolor="#ff0000">
+{% if details %}
+    {% for v in details %}
+<tr>
+
+<th>font</th>
+<td>{{v}}</td>
+{%  endfor %}
+{% elif details == '' %}
+list is empty
+
+
+{% endif %}
+
+</table>
+</center>
+

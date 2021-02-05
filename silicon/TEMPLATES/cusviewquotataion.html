@@ -1,0 +1,82 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (1).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<table border="5" bordercolor="#ff0000">
+{% if details %}
+    {% for v in details %}
+
+
+        <tr>
+            <th>CUSTOMER NAME:</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Customer_name}}</font></td>
+        </tr>
+
+
+
+        <tr>
+            <th>CUSTOMER EMAIL</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Customer_email}}</font></td>
+        </tr>
+
+
+
+        <tr>
+            <th>CATEGORY NAME</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Category_name}}</font></td>
+        </tr>
+
+
+
+        <tr>
+
+
+           <tr>
+            <th>DESCRIPTION:</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Description}}</font></td>
+        </tr>
+
+
+             <tr>
+            <th>QUANTITY SELECTED:</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Quantity_selected}}</font></td>
+        </tr>
+
+             <tr>
+            <th>DATE ADDED:</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Quotation_date}}</font></td>
+        </tr>
+    {%  endfor %}
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+</table>
+</center>
+

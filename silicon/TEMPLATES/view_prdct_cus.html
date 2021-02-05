@@ -1,0 +1,47 @@
+{% load static %}
+
+<html lang="en">
+<head>
+	<style>
+		table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		}
+		th, td {
+		padding: 15px;
+		}
+    body {
+  background-image: url('/static/wines1/images/462753.jpg');
+}
+	</style>
+    <meta charset="UTF-8">
+    <title>View products</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+</head>
+<body class= "pic" background="{% static 'trt.jpg' %}" >
+<h3 align="center">{{zz}} DETAILS</h3>
+<div style="color:blue;" align="center">
+    {{ msg }}
+</div>
+<form action="{% url 'ord_product' %}" method="post">
+{% csrf_token %}
+    <div align="center">
+    {% for g in n %}
+    <img src="/media/{{g.Product_image}}" alt="No image" height="200px" width="200px"><br><br>
+    <label>{{g.Product_name}}</label><br><br>
+    <label>Price - Rs.{{g.Unit_price}}</label><br><br>
+    <label for="cart">Add to cart</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <input type="checkbox" id="cart" name="cart" value="{{g.id}}"><br><br>
+    <label>Quantity</label><br><br>
+    <input type="number" name="quantity"><br><br>
+    <hr>
+    {% endfor %}
+    <input type="submit" value="Next">&nbsp&nbsp&nbsp&nbsp
+    <input type="reset" value="cancel">
+    </div>
+</form>
+<div align="center">
+	<button type="submit" onclick="location.href='{% url 'backtofashome' %}'" name='mybtn2'>Back</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{%  load static %}
+<head>
+<style>
+ 		    body {
+  background-image: url('/static/wines1/images/greengrass.jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<table border="5" bordercolor="#ff0000">
+{% if details %}
+    {% for v in details %}
+
+
+        <tr>
+            <th>CUS NAME</th>
+
+            <td><font>{{v.Name}}</font></td>
+        </tr>
+
+
+
+        <tr>
+            <th>CUS EMAIL</th>
+
+            <td><font>{{v.Email}}</font></td>
+        </tr>
+
+
+
+        <tr>
+            <th>CATEGORY</th>
+
+            <td><font>{{v.Category}}</font></td>
+        </tr>
+
+
+
+        <tr>
+            <th>CUS FEEDBACK</th>
+
+            <td><font>{{v.Content}}</font></td>
+        </tr>
+
+           <tr>
+            <th>SUBMITTED DATE</th>
+
+            <td><font>{{v.Submission_date}}</font></td>
+        </tr>
+
+    {%  endfor %}
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+</table>
+</center>
+

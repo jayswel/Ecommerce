@@ -1,0 +1,39 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines/images/image (1).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<html>
+<body>
+<form name="hi" method="post" action="{% url 'cus_selectproduct' %}" width="30" height="30">
+    {% csrf_token %}
+{% if details %}
+      <select id="source" name="source">
+    {% for v in details %}
+            <option>{{v}}</option>
+
+    {%  endfor %}
+      </select>
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+<input type="submit" value="select">
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,112 @@
+{%  load static %}
+
+<html>
+
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (13).jpg');
+}
+
+</style>
+</head>
+
+
+<form method="post" action="{% url 'cussendquottation' %}" >
+{% csrf_token %}
+
+{% if details %}
+    {% for v in details %}
+<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+
+<caption><font color="white">SEND QUOTATION</font> </caption>
+
+<tr>
+
+<th> YOUR NAME</th>
+
+<td><input type="text" name="wert" id="fn1" maxlength="10" title="enter your first name" placeholder="enter your first name" value="{{v.First_name}}" required  /></td>
+
+</tr>
+
+
+
+
+<tr>
+
+<th>YOUR EMAIL</th>
+
+<td><input type="email" name="trew" id="email" value="{{v.Email}}" /></td>
+
+</tr>
+
+        <tr>
+<td>
+
+{% if key %}
+    <font color="black">SELECT CATEGORY</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td><td>
+    <select id="source" name="source">
+    {% for v in key %}
+
+        <option>{{v.Category_name}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+</td>
+
+        <tr>
+
+<th>DESCRIPTION</th>
+
+<td><input type="text" name="des" id="email"  /></td>
+
+</tr>
+
+        <tr>
+
+<th>QUANTIT YSELECTED</th>
+
+<td><input type="text" name="quant" id="email"  /></td>
+
+</tr>
+
+        <tr>
+
+<th>STATUS</th>
+
+<td><input type="text" name="sts" id="email" " /></td>
+
+</tr>
+
+        <tr>
+
+
+
+
+    {%  endfor %}
+{% elif details == '' %}
+list is empty
+{% endif %}
+
+
+
+</td>
+</tr>
+
+<tr><td><input type="submit" value="Submit"></td></tr>
+</table>
+
+
+</form>
+<center>{{msg}}</center>
+</html>
+

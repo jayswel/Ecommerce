@@ -1,0 +1,208 @@
+{%  load static %}
+<html>
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/background-3126537_1280.jpg');
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+
+<ul>
+
+
+
+
+
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">CATEGORY</a>
+    <div class="dropdown-content">
+   <a href="{% url 'addcategory' %}" class="insertfonts"> Add</a>
+  <a href="{% url 'viewcategory' %}" class="insertfonts">View</a>
+    </div>
+  </li>
+
+ <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">BAND</a>
+            <div class="dropdown-content">
+              <a href=""><b>Band size</b></a>
+              <a href="{% url 'new_band_size' %}">New</a>
+              <a href="{% url 'view_band_size' %}">view</a>
+              <a href=""><b>Band style</b></a>
+              <a href="{% url 'nbs' %}">New</a>
+              <a href="{% url 'view_band_style' %}">View</a>
+                                <b>&nbsp; &nbsp;Font style</b>
+              <a href="{% url 'nfs' %}">New</a>
+              <a href="{% url 'view_font_style' %}">View</a>
+            </div>
+      </div>
+            </div>
+      </div>
+ </li>
+ <li class="dropdown">
+                 <a href="javascript:void(0)" class="dropbtn">CLIPART</a>
+            <div class="dropdown-content">
+              <a href="{% url 'new_clipart' %}">New</a>
+              <a href="{% url 'view_clipart' %}">view</a>
+            </div>
+      </div>
+ </li>
+
+ <li class="dropdown">
+       <a href="javascript:void(0)" class="dropbtn">PRICE</a>
+            <div class="dropdown-content">
+              <a href="{% url 'new_price' %}">Add</a>
+              <a href="{% url 'view_price' %}">view</a>
+            </div>
+      </div>
+ </li>
+
+ <li class="dropdown">
+
+       <a href="javascript:void(0)" class="dropbtn">PRODUCT</a>
+            <div class="dropdown-content">
+                &nbsp&nbsp<b>&nbsp;Add</b>
+                {% for t,g in d %}
+              <a href="{% url 'add_product' t %}">{{g}}</a>
+                {% endfor %}
+                &nbsp&nbsp<b>&nbsp;View</b>
+                {% for t,g in k %}
+              <a href="{% url 'view_product' g %}">{{g}}</a>
+                {% endfor %}
+            </div>
+      </div>
+ </li>
+
+
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">ORDERS</a>
+    <div class="dropdown-content">
+        <B>&nbsp; &nbsp;Preorder</B>
+   <a href="{% url 'pre_orders' %}" class="insertfonts">View </a>
+  <a href="{% url 'delete_pre_orders' %}" class="insertfonts">Delete </a>
+             <B>&nbsp; &nbsp;Customize band order</B>
+   <a href="{% url 'band_cust_orders' %}" class="insertfonts">View </a>
+      <a href="{% url 'delete_band_cust_orders' %}" class="insertfonts">Delete </a>
+                     <B>&nbsp; &nbsp;Quotation</B>
+   <a href="{% url 'quott_req' %}" class="insertfonts">View</a>
+           <a href="{% url 'del_quot' %}" class="insertfonts"> Delete </a>
+        <B>&nbsp; &nbsp;Quotation discounts</B>
+              {% for t,g in zx %}
+              <a href="{% url 'quott_disc' t %}">{{g}}</a>
+              {% endfor %}
+              <B>&nbsp; &nbsp;Delete</B>
+            {% for t,g in kf %}
+              <a href="{% url 'delete_quot' t %}">{{g}}</a>
+              {% endfor %}
+    </div>
+              </div>
+
+  </li>
+  <li>  <a href="{% url 'customers' %}" class="insertfonts">CUSTOMERS</a></li>
+
+
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">CONVAYENCE FEES</a>
+    <div class="dropdown-content">
+&nbsp; &nbsp;<b>Shipping</b>
+    <a href="{% url 'new_ship' %}" class="insertfonts">New </a>
+    <a href="{% url 'view_ship' %}" class="insertfonts">View</a>
+&nbsp; &nbsp;<b>Delivery details</b>
+    <a href="{% url 'new_delivery' %}" class="insertfonts">Add</a>
+        <a href="{% url 'view_delivery' %}" class="insertfonts">View</a>&nbsp;
+    </div>
+  </li>
+
+
+
+
+      <li class="dropdown">
+    <a href="{% url 'updateprofile' %}" class="insertfonts">UPDATE PROFILE</a>
+    <div class="dropdown-content">
+
+    </div>
+  </li>
+
+
+
+
+        <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">QUERIES</a>
+            <div class="dropdown-content">
+              <a href="{% url 'feedbak' %}">Feedbacks</a>
+              <a href="{% url 'faqs' %}">FAQ</a>
+              <a href="{% url 'del_faq' %}">Delete FAQ</a>
+            </div>
+      </div>
+        </li>
+
+
+
+  <li>  <a href="{% url 'g_m' %}" class="insertfonts"> MESSAGES</a></li>
+      <li>  <a href="{% url 'abb' %}" class="insertfonts">ABOUT</a></li>
+    <li>  <a href="{% url 'logout' %}" class="insertfonts">LOGOUT</a></li>
+
+
+
+
+</ul>
+<BR>
+<center><h2><font color="red">ADMIN HOME</font> </h2></center>
+<center>{{msg}}</center>
+
+</body>
+</html>

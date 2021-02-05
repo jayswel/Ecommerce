@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+<table border="5" bordercolor="#ff0000">
+{% if details %}
+    {% for v in details %}
+        <tr>
+            <th>image:</th>
+            <td>
+                <img src="{{v.Clipart_image.url}}">
+            </td>
+        </tr>
+    {%  endfor %}
+{% endif %}
+
+</table>
+</center>
+

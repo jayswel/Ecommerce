@@ -1,0 +1,116 @@
+
+{% load static %}
+
+
+
+<title>DEPENDENCY DROPDOWN</title>
+<script src="/static/jquery-3.4.1.min.js" ></script>
+<script>
+$(document).ready(function(){
+//alert('hello');
+$('#category').change(function(){
+
+
+category=$(this).val()
+$.ajax({
+url: '{% url 'getfontstyle'    %}',
+data:{'cat':category},
+success:function(data){
+
+$('#fontstyle').html(data);
+
+
+}
+
+
+});
+
+
+
+
+
+
+})
+
+
+
+});
+
+
+
+
+
+
+</script>
+
+
+
+</head>
+ 
+<body>
+<form name="addnotes" method="post" action="{% url 'submit' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<h3><CENTER></CENTER></h3>
+
+ 
+<table align="center" cellpadding = "10">
+
+
+
+
+
+
+
+
+ 
+<TR>
+<th>category</th>
+<TD>
+<select name="category"   id="category">
+ 
+<option value="" selected="selected" disabled="disabled"><H3>SELECT category.</H3></option>
+ 
+<option value="ELECTRONICS"><H3>ELECTRONICS</H3></option>
+    <option value="ORNAMENTS"><H3>ORNAMENTS</H3></option>
+<option value="Fashion"><H3>Fashion</H3></option>
+<option value="Groceries"><H3>Groceries</H3></option>
+
+</TD>
+</TR>
+
+<TR>
+<TD>
+
+<select id="allfont" name="allfont">
+{% for v in data %}
+<option value='{{v.id}}'>{{ v.name }}</option>
+{% endfor %}
+</select>
+
+
+
+
+</TD>
+</TR>
+
+ 
+
+<td ><input type="RESET" VALUE="RESET"></td>
+<td><input type="submit" value="SUBMIT"></td>
+
+<tr>
+<td ></td>
+<td>{% if msg %}
+
+{{msg}}
+
+{% endif %}
+
+</td></tr>
+
+
+
+</table>
+ 
+</form>
+ 

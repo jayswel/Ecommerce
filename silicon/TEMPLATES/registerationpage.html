@@ -1,0 +1,219 @@
+{% extends 'base stuCopy.html' %}
+{% block content %}
+
+
+<script type="text/javascript">
+		function validation()
+		{
+			var alpha=/^[a-zA-Z]+$/;
+			var num=/^[0-9]+$/;
+			
+			var email=/^[\w\-\.\+]+\@[a-z A-Z 0-9\.\-]+\.[a-z A-Z 0-9]{2,4}$/;
+			
+			var nam=document.getElementById("fn1");
+			var lastname=document.getElementById("fn2");
+			var username=document.getElementById("txtuname");
+			var pswd=document.getElementById("txtpswd");
+			var mob=document.getElementById("mobile");
+			var add=document.getElementById("txtadddr");
+			var mail=document.getElementById("Email_Id");
+		
+			
+              if(nam.value.length==0)
+			{
+				alert("Please Enter your name ");
+				return false;
+			}
+			
+			else if(!nam.value.match(alpha))
+			{
+				alert("invalid name");
+				nam.focus();
+				return false;
+			}
+
+			  else if(lastname.value.length==0)
+			{
+				alert(" Please Enter your second name");
+				return false;
+			}
+			else if(username.value.length==0)
+			{
+				alert("Username field cannot be null");
+				return false;
+			}
+			else if(pswd.value.length==0)
+			{
+				alert("Password field cannot be null");
+				return false;
+			}
+			   else if(mob.value.length==0)
+			{
+				alert("Mobile field cannot be null");
+				mob.focus();
+				return false;
+			}
+			
+			else if(!mob.value.match(num))
+			{
+				alert("invalid mobile number");
+				mob.focus();
+				return false;
+			}
+			else if(add.value.length==0)
+			{
+				alert("Addressfield cannot be null");
+				return false;
+			}
+			
+			else if(mail.value.length==0)
+			{
+				alert("Email field cannot be null");
+				return false;
+			}
+			else if(!mail.value.match(email))
+			{
+				alert("invalid mail id");
+				mail.focus();
+				return false;
+			}
+			
+			
+			
+			 	
+			
+		
+		}
+		
+		
+</script>
+
+
+
+
+ 
+<form method="post" action="{% url 'RegisterAction' %}">
+{% csrf_token %}
+ 
+<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+ 
+<caption>Registration form</caption>
+ 
+<tr>
+ 
+<th>Enter your first name</th>
+ 
+<td><input type="text" name="fn" id="fn1" maxlength="10" title="enter your first name" placeholder="enter your first name" required/></td>
+ 
+</tr>
+ 
+<tr>
+ 
+<th>Enter your last name</th>
+ 
+<td><input type="text" name="fn2" id="fn2"/></td>
+ 
+</tr>
+
+<tr>
+ 
+<th>Enter your user name</th>
+ 
+<td><input type="text" name="txtuname" id="txtuname"/></td>
+ 
+</tr>
+ 
+<tr>
+ 
+<th>Enter your password</th>
+ 
+<td><input type="password" name="txtpswd" id="txtpswd"/></td>
+ 
+</tr>
+ 
+
+ 
+
+
+
+
+
+
+ 
+<tr>
+ 
+<th>Enter your mobile</th>
+ 
+<td><input type="text" name="mobile" id="mobile"/></td>
+ 
+</tr>
+
+
+
+
+ 
+<tr>
+ 
+<th>Enter your address</th>
+ 
+<td><textarea rows="8" cols="20" name="txtadddr"  id="txtadddr"></textarea></td>
+ 
+</tr>
+
+
+
+ 
+<tr>
+ 
+<th>Select your gender</th>
+ 
+<td>
+ 
+male<input type="radio" name="g" value="m" checked="checked"/>
+female<input type="radio" name="g" value="f"/>
+ 
+</td>
+ 
+</tr>
+ 
+
+<tr>
+<td>EMAIL ID</td>
+<td><input type="text" name="Email_Id" maxlength="100" id="Email_Id"/></td>
+</tr>
+
+  
+
+
+
+
+ 
+<tr>
+ 
+<td colspan="2" align="center"><input type="submit" name="register" value="Register" onclick="return validation()"/>
+ 
+
+</td>
+ 
+</tr>
+<tr>
+<td><a href="{% url 'loginbcak' %}">login</a></td>
+<td>
+{% if msg %}
+{{msg}}
+{% endif %}
+
+
+
+
+
+</td>
+</tr>
+
+ 
+</table>
+
+ 
+</form>
+ 
+{% endblock %}

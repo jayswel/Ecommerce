@@ -1,0 +1,37 @@
+
+<html>
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (1).jpg');
+}
+
+</style>
+</head>
+<body>
+<form name="admin" method="POST" action="#" width="30" height="30" enctype="multipart/form-data">
+    {% csrf_token %}
+{% if abcd %}
+    <font color="#fffff0">UNIT PRIZE</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select id="source" name="source">
+
+    {% for v in abcd %}
+
+        <option>{{v.Unit_price}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+<input type="submit" value="insert">
+</form>
+</body>
+</html>

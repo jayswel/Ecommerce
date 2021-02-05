@@ -1,0 +1,98 @@
+{%  load static %}
+
+<html>
+
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (13).jpg');
+}
+
+</style>
+</head>
+
+
+<form method="post" action="{% url 'adminaddquatation' %}" >
+{% csrf_token %}
+
+<caption><font color="white"><center>SEND QUOTATION</center></font> </caption>
+<center>
+<table>
+
+<tr>
+
+<th> MINIMUM QUANTITY</th>
+
+<td><input type="text" name="wert" id="fn1" maxlength="10"  /></td>
+
+</tr>
+
+
+
+
+<tr>
+
+<th>MAX QUANTITY</th>
+
+<td><input type="text" name="trew" /></td>
+
+</tr>
+
+
+        <tr>
+
+<th>DISCOUNT PERCENTAGE</th>
+
+<td><input type="text" name="disc" id="email" /></td>
+
+</tr>
+
+
+
+        <tr>
+
+<th>STATUS</th>
+
+<td><input type="text" name="sta" id="email" /></td>
+
+</tr>
+
+
+        <tr>
+<td>
+
+{% if details %}
+    <font color="black">SELECT CATEGORY</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td><td>
+    <select id="source" name="source">
+    {% for v in details %}
+
+        <option>{{v.Category_name}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+</td>
+
+
+
+
+
+</td>
+</tr>
+
+<tr><td><input type="submit" value="Submit"></td></tr>
+</table>
+
+</center>
+</form>
+<center>{{msg}}</center>
+</html>
+

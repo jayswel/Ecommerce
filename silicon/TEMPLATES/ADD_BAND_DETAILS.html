@@ -1,0 +1,154 @@
+{%  load static %}
+<html>
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (20).jpg');
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+<center><h2><font color="#fffff0">ADD BAND DETAILS</font> </h2></center>
+<ul>
+<li class="dropdown">
+<li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">FONTS</a>
+    <div class="dropdown-content">
+    <a href="{% url 'insertfonts' %}" class="insertfonts">INSERT_FONTS</a>
+<a href="{% url 'viewfonts' %}" class="viewfonts">VIEW_FONTS</a>
+    </div>
+  </li>
+</div>
+      <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">BAND_SIZE</a>
+    <div class="dropdown-content">
+       <a href="{% url 'insertbandsize' %}" class="insertfonts">INSERT_BAND_SIZE</a>&nbsp;
+<a href="{% url 'viewbandsize' %}" class="viewfonts">VIEW_BAND_SIZE</a>
+
+    </div>
+  </li>
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">STYLE</a>
+    <div class="dropdown-content">
+       <a href="{% url 'inserstyle' %}" class="insertfonts">INSERT_STYLE</a>&nbsp;
+<a href="{% url 'viewstyle' %}" class="viewfonts">VIEW_STYLE</a>
+
+    </div>
+  </li>
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">CLIPART_NAME</a>
+    <div class="dropdown-content">
+       <a href="{% url 'inseclipname' %}" class="insertfonts">INSERT_NAME</a>&nbsp;
+<a href="{% url 'viewbandname' %}" class="viewfonts">VIEW_NAME</a>
+
+    </div>
+  </li>
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">CLIPART_IMAGE</a>
+    <div class="dropdown-content">
+       <a href="{% url 'bandimage' %}" class="insertfonts">INSERT_IMAGE</a>&nbsp;
+<a href="{% url 'viewbandimage' %}" class="viewfonts">VIEW_IMAGE</a>
+
+    </div>
+  </li>
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">MINIMUM_QUANTITY</a>
+    <div class="dropdown-content">
+       <a href="{% url 'bandminquan' %}" class="insertfonts">INSERT_MINIMUM_QUANTITY</a>&nbsp;
+<a href="{% url 'viewbandminquan' %}" class="viewfonts">VIEW_MINIMUM_QUANTITY</a>
+    <a href="javascript:void(0)"><b>&nbsp; &nbsp; &nbsp;MAXIMUM_QUANTITY</b></a>
+       <a href="{% url 'bandmaxquant' %}" class="insertfonts">INSERT_MAXIMUM_QUANTITY</a>&nbsp;
+<a href="{% url 'viewbandmaxquant' %}" class="viewfonts">VIEW_MAXIMUM_QUANTITY</a>
+
+    </div>
+  </li>
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">DISCOUNT</a>
+    <div class="dropdown-content">
+       <a href="{% url 'banddiscount' %}" class="insertfonts">ADD DISCOUNT PERCENTAGE</a>&nbsp;
+<a href="{% url 'viewbanddiscount' %}" class="viewfonts">VIEW_DISCOUNT PERCENTAGE</a>
+
+    </div>
+  </li>
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">UNITPRICE</a>
+    <div class="dropdown-content">
+       <a href="{% url 'bandunitprice' %}" class="insertfonts">INSERT_UNITPRICEE</a>&nbsp;
+<a href="{% url 'viewbandunitprice' %}" class="viewfonts">VIEW_UNITPRICE</a>
+
+    </div>
+  </li>
+
+          <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">STATUS</a>
+    <div class="dropdown-content">
+       <a href="{% url 'bandstatus' %}" class="insertfonts">INSERT_STATUS</a>&nbsp;
+<a href="{% url 'viewbandstatus' %}" class="viewfonts">VIEW_STATUS</a>
+
+    </div>
+  </li>
+      <li>  <a href="{% url 'addanewband' %}" class="insertfonts">ADD A BAND</a></li>
+          <li>  <a href="{% url 'cushome' %}" class="insertfonts">HOME</a></li>
+
+
+</ul>
+
+<center>{{msg}}</center>
+</body>
+</html>

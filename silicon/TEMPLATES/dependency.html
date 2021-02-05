@@ -1,0 +1,66 @@
+
+<html>
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (1).jpg');
+}
+
+</style>
+</head>
+
+<body>
+<font color="red"><H2>CONFIGURE YOUR BAND</H2></font>
+<form name="admin" method="post" action="{% url 'cus_customizebandaction' %}" width="30" height="30" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+<table>
+
+
+<tr>
+  <td>
+
+{% if details %}
+    <font color="#fffff0">SELECT QUANTITY</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <select id="source4" name="source4">
+
+    {% for v in details %}
+
+        <option value="{{ v }}">{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+</td>
+</tr>
+<br>
+
+<br>
+<br>
+<tr><td>
+    <input type="submit" value="VIEW PRIZE">
+</td></tr>
+
+
+
+
+</table>
+</form>
+
+</body>
+</html>
+
+
+
+

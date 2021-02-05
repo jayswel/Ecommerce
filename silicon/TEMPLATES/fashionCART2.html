@@ -1,0 +1,46 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (11).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<table border="5" bordercolor="#ff0000">
+{% if data %}
+    <tr><th>Product_name:</th>
+        <th>Product_image</th>
+        <th>Unit_price</th></tr>
+    {% for v in data %}
+
+
+        <tr><td>{{v.Product_name}}</td>
+
+
+        <img src="media/{{v.Product_image}}">
+
+        <td>{{v.Unit_price}}</td>
+
+
+        </tr>
+
+
+
+    {%  endfor %}
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+<td>{{quantity}}</td>
+</table>
+</center>
+

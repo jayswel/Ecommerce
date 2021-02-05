@@ -1,0 +1,38 @@
+
+<html>
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (1).jpg');
+}
+
+</style>
+</head>
+<body>
+<form name="admin" method="POST" action="{% url 'selectbandsizeaction' %}" width="30" height="30" enctype="multipart/form-data">
+    {% csrf_token %}
+
+{% if details %}
+    <font color="#fffff0">SELECT A SIZE</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select id="source" name="source">
+
+    {% for v in details %}
+
+        <option  value="{{ v }}">{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+<input type="submit" value="insert">
+</form>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{%  load static %}
+
+<html>
+
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (13).jpg');
+}
+
+    </style>
+</head>
+<form method="post" action="{% url 'cusfaqaction' %}">
+{% csrf_token %}
+
+{% if details %}
+    {% for v in details %}
+   <center><caption><font color="white">Ask any qustions</font> </caption></center>
+    <br>
+<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+
+<tr>
+
+<th>NAME</th>
+
+<td><input type="text" name="wert" id="fn1" maxlength="10" title="enter your first name" placeholder="enter your first name" value="{{v.First_name}}" required  /></td>
+
+</tr>
+
+
+
+
+<tr>
+
+<th>EMAIL</th>
+
+<td><input type="email" name="trew" id="email" value="{{v.Email}}" /></td>
+
+</tr>
+
+    <tr>
+<td align="center">TYPE YOUR QUSTIONS</td>
+<td><textarea name="cusfaq" rows="10" cols="30">ask your qustion here !</textarea></td>
+</tr>
+
+
+<tr><td><input type="submit" value="Submit"></td></tr>
+
+
+    {%  endfor %}
+{% elif details == '' %}
+list is empty
+{% endif %}
+
+
+
+</td>
+</tr>
+
+
+</table>
+
+
+</form>
+<div align="center">
+	<button type="submit" onclick="location.href='{% url 'customer_home' %}'" name='mybtn2'>Home</button>
+</div>
+</html>
+

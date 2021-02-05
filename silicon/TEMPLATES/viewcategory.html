@@ -1,0 +1,38 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (15).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+<BR>
+
+<table border="5" bordercolor="#ff0000">
+    <th>CATEGORIES</th>
+{% if details %}
+    {% for v in details %}
+        <tr>
+        </tr>
+        <tr>
+            <td>{{v}}</td>
+        </tr>
+    {%  endfor %}
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+</table>
+    <BR>
+    <BR>
+    	<button type="submit" class="registerbtn" onclick="location.href='{% url 'admin_home' %}'" name='mybtn2'>Back</button>
+</center>
+

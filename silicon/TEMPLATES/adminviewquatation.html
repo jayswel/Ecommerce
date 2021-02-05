@@ -1,0 +1,68 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (1).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<table border="5" bordercolor="#ff0000">
+{% if details %}
+    {% for v in details %}
+
+
+        <tr>
+            <th>CATEGORY NAME:</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Category_name}}</font></td>
+        </tr>
+
+
+
+        <tr>
+            <th>MIN.QUANTITY</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Minimum_quantity}}</font></td>
+        </tr>
+
+
+
+        <tr>
+            <th>MAXIMUM QUANTITY</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Maximum_quantity}}</font></td>
+        </tr>
+
+
+
+        <tr>
+
+
+           <tr>
+            <th>DISCOUNT PERCENTAGE:</th>
+        </tr>
+        <tr>
+            <td><font color="#f0ffff">{{v.Discount_percent}}</font></td>
+        </tr>
+
+    {%  endfor %}
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+</table>
+</center>
+

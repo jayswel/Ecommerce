@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion home</title>
+</head>
+
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (11).jpg');
+}
+
+</style>
+<body>
+
+<form name="admin" method="POST" action="{% url 'checkboxaction' %}" width="30" height="30" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<h1><center>FASHION</center></h1>
+<center>
+    <table>
+{% if details %}
+    {% for v in details %}
+        <tr>
+            <th><center><font color="black" size="+2">{{v.Product_name}}</center></font></th>
+            </tr>
+
+        <tr>
+             <td>  <img src="media/{{v.Product_image}}"></td>
+
+
+        </tr>
+
+
+        <tr>
+            <td align="center"> <font color="red" >Rs {{v.Unit_price}}</font> </td>
+
+        </tr>
+        <tr>
+
+            <td align="center"> <input type="checkbox" value="{{ v.id }}" name="chk[]" id="chk[]"  >Add to cart</td>
+        </tr>
+
+        <tr>
+            <td> Quantity<input type="number"  size="1" name="source4"> </td>
+        </tr>
+        <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+        <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+        <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+
+
+    {%  endfor %}
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+</table>
+    <center>
+<br><br><br>
+    </center>
+<input type="submit" value="Next">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset">&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="button" onclick="location.href='{% url 'backtofashome' %}'" name='mybtn2'>Back</button>
+    </center>
+
+</form>
+</body>
+</html>

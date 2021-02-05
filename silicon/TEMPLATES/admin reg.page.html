@@ -1,0 +1,105 @@
+
+
+<html>
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (15).jpg');
+}
+
+    </style>
+</head>
+<form method="post" action="{% url 'AdminRegisterAction' %}">
+{% csrf_token %}
+
+
+<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+
+<caption>Admin Registration form</caption>
+
+<tr>
+
+<th>Enter your first name</th>
+
+<td><input type="text" name="Adminfirstn" id="fn1" maxlength="10"  placeholder="enter your first name" required/></td>
+
+</tr>
+
+<tr>
+
+<th>Enter your last name</th>
+
+<td><input type="text" name="Adfn2" id="fn2"/></td>
+
+</tr>
+
+
+<tr>
+
+<th>Email</th>
+
+<td><input type="email" name="email" id="email"/></td>
+
+</tr>
+
+<tr>
+
+<th>Enter your password</th>
+
+<td><input type="password" name="adtxtpswd" id="txtpswd"/></td>
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+
+<td colspan="2" align="center"><input type="submit" name="register" value="Register" onclick="return validation()"/>
+
+
+</td>
+
+</tr>
+<tr>
+<td><a href="{% url 'loginbcak' %}">login</a></td>
+<td>
+{% if msg %}
+{{msg}}
+{% endif %}
+
+
+
+
+
+</td>
+</tr>
+
+
+</table>
+
+
+</form>
+</html>
+

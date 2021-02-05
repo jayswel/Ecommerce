@@ -1,0 +1,78 @@
+
+<html>
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/greengrass.jpg');
+}
+
+</style>
+</head>
+<body>
+<form name="admin" method="post" action="{% url 'addanewbandaction' %}" width="30" height="30" enctype="multipart/form-data">
+    {% csrf_token %}
+{% if details %}
+    <font color="#fffff0">SELECT A FONT</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select id="source" name="source">
+
+    {% for v in details %}
+
+        <option>{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+
+<table>
+<tr>
+<td><font color="#fffff0">ADD BAND SIZE:</font> </td>
+<td><input type="text" size=30 name="pro"></td>
+</tr>
+    <tr>
+<td><font color="#fffff0">ADD STYLE:</font> </td>
+<td><input type="text" size=30 name="style"></td>
+</tr>
+        <tr>
+<td><font color="#fffff0">ADD CLIPARTNAME:</font> </td>
+<td><input type="text" size=30 name="clipname"></td>
+</tr>
+<tr>
+<td><font color="#fffff0">SELECT IMAGE:</font></td>
+<td><input type="file" size=30 name="image" id="1234"></td>
+</tr>
+<tr>
+<td><font color="#fffff0">MINIMUM QUANTITY:</font></td>
+<td><input type="text" size=30 name="min" id="min"></td>
+</tr>
+<tr>
+<td><font color="#fffff0">MAXIMUM QUANTITY:</font></td>
+<td><input type="text" size=30 name="max" id="max"></td>
+</tr>
+<tr>
+<td><font color="#fffff0">DISCOUNT PERCENTAGE:</font></td>
+<td><input type="text" size=30 name="dp" id="dp"></td>
+</tr>
+<tr>
+<td><font color="#fffff0">UNIT PRICE:</font></td>
+<td><input type="text" size=30 name="up" id="up"></td>
+</tr>
+<tr>
+<td><font color="#fffff0">STATUS</font></td>
+<td><input type="text" size=30 name="sts" id="sts"></td>
+</tr>
+</table>
+<input type="submit" value="insert">
+</body>
+</html>
+
+
+
+

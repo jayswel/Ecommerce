@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+<html>
+{%  load static %}
+<head>
+<style>
+		    body {
+  background-image: url('/static/wines1/images/greengrass.jpg');
+}
+
+    </style>
+</head>
+
+<body>
+<center><H2>FAQ</H2></center>
+<center>
+<table>
+    <tr>
+    {% if details %}
+        {% for v in details %}
+            <form name="hi" method="post" action="{% url 'adminprovideanswer' v.id %}" width="30" height="30">{% csrf_token %}
+                <label><td>Question)&nbsp; &nbsp;  {{v.Question}}</td></label>
+    <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr>
+    &nbsp; <td>&nbsp;  &nbsp; answer)&nbsp; <input type="text" name="ans"><input type="submit" value="send"></td></tr>
+
+                   </tr>
+            </form>
+
+        {%  endfor %}
+
+    {% elif details == '' %}
+            list is empty
+    {% endif %}
+
+<center>{{msg}}</center>
+
+</table>
+    </center>
+</body>
+
+</html>
+
+
+
+

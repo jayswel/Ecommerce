@@ -1,0 +1,32 @@
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines/images/image (1).jpg');
+}
+
+    </style>
+</head>
+<center>
+
+
+
+
+
+<table border="5" bordercolor="#ff0000">
+{% if details %}
+    {% for v in details %}
+<tr>
+
+<th>VIEW SHIPPING COST:</th>
+<td>{{v.Shipping_cost}}</td>
+{%  endfor %}
+{% elif details == '' %}
+list is empty
+
+
+{% endif %}
+
+</table>
+</center>
+

@@ -1,0 +1,127 @@
+{%  load static %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (20).jpg');
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {background-color: black;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+<center><h2><font color="#fffff0">CUSTOMER HOME</font> </h2></center>
+<ul>
+
+<li class="dropdown">
+    <div class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">CATEGORIES</a>
+            <div class="dropdown-content">
+                <a href="{% url 'customizedband2' %}">Order Customized bands</a>
+                {% for t,g in d %}
+              <a href="{% url 'view_prdct_cus' t g %}">{{g}}</a>
+                {% endfor %}
+            </div>
+    </div>
+
+  </li>
+</div>
+        <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">MY ORDERS</a>
+            <div class="dropdown-content">
+                <a href="{% url 'view_cus_band_orders' %}">CUSTOMIZED BANDS</a>
+                <a href="{% url 'view_quotations_cust' %}">QUOTATIONS</a>
+                                {% for t,g in k %}
+              <a href="{% url 'view_pre_cus_ord' g %}">{{g}}</a>
+                {% endfor %}
+&nbsp;
+    </div>
+                      <li class="dropdown">
+    <a href="{% url 'my_prof' %}" class="insertfonts">UPDATE PROFILE</a>&nbsp;
+    <div class="dropdown-content">
+
+            <li class="dropdown">
+    <a href="{% url 'quott' %}" class="insertfonts">QUOTATIONS</a>&nbsp;
+    <div class="dropdown-content">
+    </div>
+
+               <li class="dropdown">
+    <a href="{% url 'price_chart' %}" class="insertfonts">PRICE CHART</a>&nbsp;
+    <div class="dropdown-content">
+    </div>
+
+
+  </li>
+  </li>
+
+          <li class="dropdown">
+                  <a href="{% url 'faq' %}" class="insertfonts">FAQ</a>
+    </div>
+  </li>
+
+
+            <li class="dropdown">
+    <a href="{% url 'feedback' %}" class="insertfonts">FEEDBACK</a>&nbsp;
+    <div class="dropdown-content">
+
+                  <li class="dropdown">
+    <a href="{% url 'logout' %}" class="insertfonts">LOGOUT</a>&nbsp;
+    <div class="dropdown-content">
+    </div>
+
+
+</ul>
+<br>
+<br>
+<center><font color="white"> {{msg}} </font> </center>
+
+
+</body>
+</html>

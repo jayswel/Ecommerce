@@ -1,0 +1,90 @@
+{%  load static %}
+
+<html>
+
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (13).jpg');
+}
+
+</style>
+</head>
+
+
+<form method="post" action="{% url 'cussendfeedback' %}" >
+{% csrf_token %}
+
+{% if details %}
+    {% for v in details %}
+<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+
+<caption><font color="white">SEND YOUR FEEDBACK</font> </caption>
+
+<tr>
+
+<th>NAME</th>
+
+<td><input type="text" name="wert" id="fn1" maxlength="10" title="enter your first name" placeholder="enter your first name" value="{{v.First_name}}" required  /></td>
+
+</tr>
+
+
+
+
+<tr>
+
+<th>EMAIL</th>
+
+<td><input type="email" name="trew" id="email" value="{{v.Email}}" /></td>
+
+</tr>
+
+        <tr>
+<td align="center">
+
+{% if key %}
+    <font color="black">CATEGORY</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td><td>
+    <select id="source" name="source">
+    {% for v in key %}
+
+        <option>{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif key == '' %}
+
+        list is empty
+
+
+{% endif %}
+</td>
+    <tr>
+<td align="center">FEEDBACK:</td>
+<td><textarea name="cusfaq" rows="10" cols="30">feedback!</textarea></td>
+</tr>
+
+    {%  endfor %}
+{% elif details == '' %}
+list is empty
+{% endif %}
+
+
+
+</td>
+</tr>
+
+<tr><td><input type="submit" value="Submit"></td></tr>
+</table>
+
+
+</form>
+<center>{{msg}}</center>
+<div align="center">
+	<button type="submit" onclick="location.href='{% url 'customer_home' %}'" name='mybtn2'>Home</button>
+</div>
+</html>
+

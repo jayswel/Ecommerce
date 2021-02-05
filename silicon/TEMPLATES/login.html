@@ -1,0 +1,43 @@
+﻿
+{%  load static %}
+<head>
+<style>
+    body {
+  background-image: url('/static/wines1/images/image (21).jpg');
+}
+
+    </style>
+</head>
+
+<form name="loginForm" method="post" action="{% url 'LoginAction' %}" width="30" height="30">
+{% csrf_token %}
+    <center>
+
+<table width="40%" background=”C:\Users\jaysw\Downloads\tableback.jpg” align="center">
+
+
+<tr>
+<td colspan="2"><center><font size=20><b></b></font></center></td>
+</tr>
+<br><br><br>
+<tr>
+<td>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:</td>
+<td><input type="text" size=30 name="email"></td>
+</tr>
+
+<tr>
+<td>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:</td>
+<td><input type="Password" size=30 name="pwd"></td>
+</tr>
+
+<tr>
+<td >&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="Reset"></td>
+<td>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Login">
+</td>
+</tr>
+<center>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;{{msg}}</center>
+
+</table>
+    </center>
+
+</form>

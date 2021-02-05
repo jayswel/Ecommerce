@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/html">
+{%  load static %}
+<head>
+<style type="text/css">
+    body {
+ background-image: url('/static/wines1/images/image (11).jpg' ); background-repeat:no-repeat;
+}
+
+
+</style>
+
+
+</head>
+
+<body>
+<center>
+<font color="black"><H2>CONFIGURE YOUR BAND</H2></font>
+<form name="admin" method="post" action="{% url 'cus_customizebandaction' %}" width="30" height="30" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<table>
+
+<tr>
+    <td><font color="black"> FRONT MESSAGE</font></td>
+<td><input type="text" size=30 name="catname1"></td>
+</tr>
+
+<tr>
+    <td><font color="black"> BACK MESSAGE</font></td>
+<td><input type="text" size=30 name="catname2"></td>
+</tr>
+
+<tr>
+    <td><font color="black">COLOR</font></td>
+<td><input type="color" size=30 name="catname3"></td>
+</tr>
+
+
+<tr>
+<td>
+{% if details2 %}
+    <font color="black">BAND STYLE</font>
+
+
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <td> <select id="source3" name="source3">
+
+    {% for v in details2 %}
+
+        <option>{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+{% if details3 %}
+    <font color="black">SELECT BAND SIZE</font>&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+
+    <select id="bansiz" name="bansiz">
+
+    {% for v in details3 %}
+
+        <option>{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+{% if details4 %}
+    <font color="black">SELECT FONT STYLE</font>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+    <select id="source2" name="source2">
+
+    {% for v in details4 %}
+
+        <option>{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td>
+{% if details5 %}
+    <font color="black">SELECT CLIPART NAME</font>&nbsp;
+    <td>
+      <select id="source5" name="source5">
+
+    {% for v in details5 %}
+
+        <option>{{v}}</option>
+
+    {%  endfor %}
+
+      </select>
+
+{% elif details == '' %}
+
+        list is empty
+
+
+{% endif %}
+</td>
+</tr>
+
+<tr>
+  <td>
+
+<tr>
+    <td><font color="black"> QUANTITY</font></td>
+<td><input type="number" size=30 name="source4"></td>
+</tr>
+
+</table>
+<table>
+
+
+
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tr>
+    <td align="right">    &nbsp; &nbsp;<input type="submit" value="ADD TO CART"></td>
+</form>
+
+</center>
+
+
+
+<form name="admin" method="post" action="{% url 'viewcart' %}" width="30" height="30" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+             <td align="left"> &nbsp; &nbsp; &nbsp;  &nbsp;<input type="submit" value="VIEW CART"></td>
+
+    </table>
+    <center><font color="black">{{msg}}</font> </center>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

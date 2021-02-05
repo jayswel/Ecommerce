@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+            body {
+  background-image: url('/static/wines1/images/image (16).jpg');
+}
+
+    <script type="text/javascript">
+
+		function validation()
+		{
+			var alpha=/^[a-z][a-z\s]*$/;
+			var num=/^\d{10,}(?:,\d{10,})*$/;
+
+			var email=/^[\w\-\.\+]+\@[a-z A-Z 0-9\.\-]+\.[a-z A-Z 0-9]{2,4}$/;
+
+			var nam=document.getElementById("Adminfirstn");
+			var lastname=document.getElementById("Adfn2");
+			var mob=document.getElementById("aaa");
+			var add=document.getElementById("eee");
+			var mail=document.getElementById("email");
+
+
+
+              if(nam.value.length==0)
+			{
+				alert("Please Enter your name ");
+				return false;
+			}
+
+			else if(!nam.value.match(alpha))
+			{
+				alert("invalid name");
+				nam.focus();
+				return false;
+			}
+
+			  else if(lastname.value.length==0)
+			{
+				alert(" Please Enter your second name");
+				return false;
+			}
+
+			   else if(mob.value.length==0)
+			{
+				alert("Mobile field cannot be null");
+				mob.focus();
+				return false;
+			}
+
+			else if(!mob.value.match(num))
+			{
+				alert("invalid mobile number");
+				mob.focus();
+				return false;
+			}
+			else if(add.value.length==0)
+			{
+				alert("Addressfield cannot be null");
+				return false;
+			}
+
+			else if(mail.value.length==0)
+			{
+				alert("Email field cannot be null");
+				return false;
+			}
+			else if(!mail.value.match(email))
+			{
+				alert("invalid mail id");
+				mail.focus();
+				return false;
+			}
+		}
+    </script>
+
+
+
+
+   </style>
+    <meta charset="UTF-8">
+    <title>checkout</title>
+</head>
+
+<form name="checkout" method="post" action="{% url 'paybutton' %}" width="30" height="30">
+    {% csrf_token %}
+<center>
+<table align="center" width="40%" background=”C:\Users\jaysw\Downloads\tableback.jpg” align="center">
+<tr>
+<td colspan="2"><center><font size=20><b></b></font></center></td>
+</tr>
+<br>
+<tr><td><H2>&emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &nbsp;  Total Rupees &nbsp; {{total}}</H2></td>
+    <TR>
+
+<td>&emsp;&emsp;&emsp;&emsp;
+    &emsp;&emsp;&emsp;&emsp;
+    &emsp;  &emsp;<input type="text" size=30 name="pay" id="1234"></td>
+</tr>
+
+</table>
+    </center>
+    &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;
+
+
+
+<center>{{msg}}</center>
+
+
+{% if details %}
+    {% for v in details %}
+<br>
+<br>
+<table border="1" align="center" width="400" bgcolor="#CCCCCC" >
+
+<caption>Bill to :</caption>
+
+<tr>
+
+<th>Enter your first name</th>
+
+<td><input type="text" name="Adminfirstn" id="fn1" maxlength="10" title="enter your first name" placeholder="enter your first name" value="{{v.First_name}}" required/></td>
+
+</tr>
+
+<tr>
+
+<th>Enter your last name</th>
+
+<td><input type="text" name="Adfn2" id="fn2" value="{{v.Last_name}}" /></td>
+
+</tr>
+
+
+<tr>
+
+<th>Email</th>
+
+<td><input type="email" name="email" id="email" value="{{v.Email}}" /></td>
+
+</tr>
+
+<tr>
+<th>Phone</th>
+
+<td><input type="number" name="aaa" id="rrr"  /></td>
+
+</tr>
+
+
+    <tr>
+<th>State</th>
+
+<td><input type="text" name="bbb" id="ooo" /></td>
+
+</tr>
+
+    <tr>
+<th>City</th>
+
+<td><input type="text" name="ccc" id="ool" /></td>
+
+</tr>
+
+    <tr>
+<th>Pincode</th>
+
+<td><input type="number" name="ddd" id="fpp" /></td>
+
+</tr>
+
+    <tr>
+<th>Address</th>
+
+<td><textarea rows="8" cols="20" name="eee"  id="txtadddr"></textarea></td>
+
+</tr>
+
+ {%  endfor %}
+{% elif details == '' %}
+list is empty
+{% endif %}
+
+
+</table>
+<br>
+&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp;
+ <button type="submit"  name='mybtn2'>pay</button>
+</form>
+
+</body>
+</html>
+
+
